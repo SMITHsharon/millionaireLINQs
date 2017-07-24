@@ -50,6 +50,7 @@ namespace Millionaires
                 customers.Where(cust => cust.Balance >= 1000000)
                 .GroupBy(cust => cust.Bank);
 
+            Console.WriteLine();
             foreach (var mill in millionaires)
             {
                 Console.WriteLine($"{mill.Key} {mill.Count()}");
@@ -78,7 +79,19 @@ namespace Millionaires
                 new Bank(){ Name="Citibank", Symbol="CITI"},
             };
 
+            var millionaires2 =
+                from cust in customers
+                where cust.Balance >= 1000000
+                orderby cust.Name.Substring(cust.Name.IndexOf(" ") + 1)
+                join bank in banks on cust.Bank equals bank.Symbol
+                select new { Name = cust.Name, Bank = bank.Name };
 
+            Console.WriteLine();
+            foreach (var mill in millionaires2)
+            {
+                Console.WriteLine($"{mill.Name} at {mill.Bank}");
+            }
+            
         }
     }
 }
