@@ -70,7 +70,8 @@ namespace Millionaires
             var millionaires2 =
                 from cust in customers
                 where cust.Balance >= 1000000
-                orderby cust.Name.Substring(cust.Name.IndexOf(" ") + 1)
+                orderby cust.Name.Substring(cust.Name.IndexOf(" ") + 1) // cust.Name.Split(' ')[1]
+                
                 join bank in banks on cust.Bank equals bank.Symbol
                 select new { Name = cust.Name, Bank = bank.Name };
 
