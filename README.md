@@ -51,3 +51,17 @@ Joe Landy at Wells Fargo
 ...
 ```
 
+### Technologies Used
+- `C#`
+- `LINQ`
+- Visual Studio Code
+
+
+```
+git clone https://github.com/SMITHsharon/LINQedListIntro.git
+cd millionaireLINQs
+```
+
+### Contributor
+[Sharon Smith](https://github.com/SMITHsharon)
+
